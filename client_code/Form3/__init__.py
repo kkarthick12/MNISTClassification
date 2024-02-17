@@ -18,7 +18,7 @@ class Form3(Form3Template):
 
     # Any code you write here will run before the form opens.
     file = 'test_html_text.txt'
-    self.rich_text_1.content = anvil.server.call('read_about',file)
+    # self.rich_text_1.content = anvil.server.call('read_about',file)
     
     # Set the latitude and longitude of the map to the desired location
     self.map_1.center = GoogleMap.LatLng(30.284215739792057, -97.73782819066138)

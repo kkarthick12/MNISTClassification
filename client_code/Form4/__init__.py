@@ -17,7 +17,7 @@ class Form4(Form4Template):
     anvil.users.login_with_form()
   
     file = 'test_html_text_2.txt'
-    self.rich_text_2.content = anvil.server.call('read_about',file)
+    # self.rich_text_2.content = anvil.server.call('read_about',file)
 
     
     
