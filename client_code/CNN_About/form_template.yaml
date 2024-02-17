@@ -1,0 +1,270 @@
+is_package: true
+container:
+  type: HtmlTemplate
+  properties: {html: '@theme:standard-page.html'}
+components:
+- type: ColumnPanel
+  properties: {}
+  name: content_panel
+  layout_properties: {slot: default}
+  components:
+  - name: rich_text_1
+    properties: {content: '## **Our CNN model**'}
+    type: RichText
+    layout_properties: {grid_position: 'SFHDEN,JTXSYL'}
+  - name: rich_text_2
+    properties: {content: '## **CNN**
+
+
+        In our journey to harness the full potential of Convolutional Neural Networks
+        (**CNNs**) for the **MNIST dataset**, we embarked on an exploration that delved
+        deep into the intricacies of network design using both **TensorFlow** and
+        **PyTorch**. Our aim was not just to adhere to the **TensorFlow** framework
+        as suggested by our course guidelines but to extend our investigation into
+        **PyTorch**, motivated by a curiosity to discern any impactful differences
+        between the two frameworks.
+
+
+        ** **
+
+        ### **TensorFlow Model**
+
+
+        Our **TensorFlow** model''s genesis was grounded in a robust initial architecture—what
+        we refer to as the ''Basic'' model. This foundational design was meticulously
+        constructed to ensure a solid starting point, achieving an impressive accuracy
+        benchmark of 99%. Yet, our ambition was not just to reach this threshold but
+        to transcend it. To edge closer to the pinnacle of accuracy, we conceived
+        the ''Modified'' model, an iteration of our initial structure distinguished
+        solely by an enhanced dropout rate strategy, starting from the first layer
+        itself.
+
+
+        **Initial Architecture and Adjustments**
+
+
+        Both the ''Basic'' and ''Modified'' models share a common architectural lineage,
+        each starting with a first convolutional block comprising two layers of 32
+        filters of size 3x3. This setup was deliberately chosen to effectively extract
+        elementary features such as shapes and edges, which are crucial for the initial
+        stages of digit recognition. As we progressed to the second block, the filter
+        count doubled to 64, maintaining the same kernel size—a strategic move that
+        proved instrumental in capturing more nuanced aspects of the digits, like
+        subtle curves and intersections.
+
+
+        The journey culminated in a third convolutional block with 128 filters, a
+        deliberate scale-up to delve into the details that escaped the grasp of the
+        preceding layers. Finally, the transition to the dense layer before classification
+        was marked by careful consideration of its crucial role in piecing together
+        the high-level features for digit identification. It was through this thoughtful
+        progression from the first layer to the final, that our models achieved the
+        finesse required for higher accuracy.
+
+
+        **Key Breakthrough with Dropout**
+
+
+        The story of our models'' evolution is significantly marked by the strategic
+        role of dropout regularization. The ''Basic'' model adhered to a conservative
+        dropout rate of 0.1 following the max-pooling layers, which, while effective,
+        left room for optimization. Conversely, the ''Modified'' model embarked on
+        a bold journey with escalated dropout rates, initiating at 0.3 and culminating
+        at 0.5 prior to the final layer. This assertive approach was thoroughly evaluated
+        using a validation set split of 0.2 across 20 epochs, revealing intriguing
+        insights into model performance. The ''Basic'' model achieved a commendable
+        highest train accuracy of 99.70%, outperforming the ''Modified'' model''s
+        train accuracy, which peaked at 99.24%. This 0.5% greater train accuracy in
+        the ''Basic'' model hinted at its propensity for overfitting when faced with
+        the training data—a tendency mitigated by the ''Modified'' model''s higher
+        dropout rates.'}
+    type: RichText
+    layout_properties: {grid_position: 'DLIKWH,ZNYANY'}
+  - name: image_4
+    properties: {source: _/theme/CNN_Acc.png, height: 456.5}
+    type: Image
+    layout_properties: {grid_position: 'SGGJWF,VUMTWL'}
+  - name: rich_text_4
+    properties: {content: 'In the realm of validation accuracy, however, the tables
+        turned. The ''Modified'' model, with its stringent dropout regimen, reached
+        a highest validation accuracy of 99.54%, slightly surpassing the ''Basic''
+        model''s peak at 99.42%. This marginal but critical advantage in validation
+        performance is indicative of the ''Modified'' model''s enhanced ability to
+        generalize, an attribute less pronounced in the ''Basic'' model due to its
+        relatively lower dropout rate and subsequent overfitting nuances. The accompanying
+        plots further articulate this distinction, visually encapsulating the journey
+        towards refined accuracy. They unfold the story of our dropout strategy''s
+        triumph in the pursuit of excellence in digit classification, a pursuit that
+        does not merely seek to learn but to understand and predict with unparalleled
+        precision.
+
+
+        In conclusion, our in-depth examination and rigorous testing have led us to
+        a pivotal decision: to implement the ''Modified'' model in Anvil. This choice
+        is anchored in the conviction that a model''s prowess is ultimately gauged
+        by its performance on unseen data, a test the ''Modified'' model passed with
+        flying colors by achieving a validation accuracy exceeding the coveted 99.5%
+        mark.
+
+
+
+        **Testing and Results Analysis**
+
+
+        In our extensive testing of the TensorFlow model on the MNIST dataset, we
+        achieved a remarkable feat with no misclassifications. This exceptional result
+        highlights the robustness and accuracy of our meticulously designed convolutional
+        neural network. The absence of misclassified images indicates that our model
+        has successfully learned to capture the essential features of handwritten
+        digits, from simple edges and shapes to more complex patterns, ensuring precise
+        recognition across the entire dataset.
+
+
+        The success of our TensorFlow model can be attributed to several key factors.
+        Firstly, the strategic layering of convolutional blocks with increasing filter
+        sizes enabled the model to extract features at various levels of abstraction,
+        effectively capturing the nuances of each digit. Secondly, the careful implementation
+        of dropout regularization prevented overfitting, allowing the model to generalize
+        well to unseen data. Finally, the use of batch normalization and ReLU activations
+        ensured stable and efficient training, contributing to the high accuracy achieved.
+
+
+        ** **
+
+
+
+        ## **PyTorch Model**
+
+
+        For our **PyTorch** model designed to classify the **MNIST dataset**, we meticulously
+        crafted an architecture that encapsulates our understanding of effective deep
+        learning practices. The model is a testament to our iterative design process,
+        where each layer and technique is purposefully selected to enhance the model''s
+        ability to discern and classify complex patterns in handwritten digits.
+
+
+        **Architecture and Strategic Enhancements**
+
+
+        Our **PyTorch** model, **CNN**, begins its feature extraction journey with
+        a convolutional layer sequence designed for progressive complexity. The initial
+        layer starts with 32 filters of size 3x3, a decision made to capture the fundamental
+        aspects of the images such as edges and basic shapes. This is immediately
+        followed by batch normalization and ReLU activation to ensure a stable and
+        non-linear processing of the input data. The inclusion of a max-pooling layer
+        after each convolutional and activation sequence serves to reduce the spatial
+        dimensions while preserving the most salient features.
+
+
+        As we advance deeper into the network, the number of filters in the convolutional
+        layers increases from 32 to 64, and finally to 128. This gradual increase
+        is not arbitrary; it is based on our empirical findings that a deeper network
+        with more filters at later stages is more adept at capturing the intricate
+        details necessary for accurate digit classification. The consistent application
+        of batch normalization across these layers plays a crucial role in maintaining
+        the efficiency of the training process by normalizing the layer inputs.
+
+
+        **Critical Role of Dropout in Regularization**
+
+
+        A pivotal aspect of our **PyTorch** model is the strategic use of dropout,
+        particularly within the fully connected layers. Recognizing the potential
+        for overfitting with increased model complexity, we implemented a dropout
+        rate of 0.5 both before and after the dense layer comprising 512 units. This
+        aggressive regularization approach significantly contributed to the model''s
+        robustness, ensuring that it generalizes well to unseen data by preventing
+        it from relying too heavily on any single feature.
+
+
+        **Forward Pass and Model Integration**
+
+
+        The forward pass of our model is streamlined yet powerful, with the convolutional
+        layers feeding into a flattened layer that transforms the 2D feature maps
+        into a 1D vector. This vector is then processed through the fully connected
+        layers, where the dropout regularization is applied. The culmination of this
+        process is a softmax output that classifies the input image into one of the
+        ten digit categories.
+
+
+        **Testing and Results Analysis**
+
+
+        Our PyTorch model also demonstrated impressive performance on the MNIST dataset,
+        with only a few instances of misclassification. Specifically, the model misclassified
+        the digit ''1'' as ''2'', ''6'' as ''8'', and ''7'' as ''3''. While the overall
+        accuracy remains high, these misclassifications provide valuable insights
+        into areas where the model could be further refined'}
+    type: RichText
+    layout_properties: {grid_position: 'BNRTMW,DWBBIH'}
+  - name: label_1
+    properties: {text: 1 MISCLASSIFIED AS 2, align: center, bold: true}
+    type: Label
+    layout_properties: {grid_position: 'PVBMVA,FBWBHX'}
+  - name: label_2
+    properties: {text: 6 MISCLASSIFIED AS 8, align: center, bold: true}
+    type: Label
+    layout_properties: {grid_position: 'PVBMVA,VXYPYR'}
+  - name: label_3
+    properties: {text: 7 MISCLASSIFIED AS 3, bold: true, align: center}
+    type: Label
+    layout_properties: {grid_position: 'PVBMVA,HUIXBH'}
+  - name: image_1
+    properties: {source: _/theme/1_missclassified.png, height: 257.75, spacing_above: none,
+      spacing_below: none}
+    type: Image
+    layout_properties: {grid_position: 'DGFUNY,MQNDYS'}
+  - name: image_2
+    properties: {source: _/theme/6_misclassified.png, height: 256.75, spacing_above: none,
+      spacing_below: none}
+    type: Image
+    layout_properties: {grid_position: 'DGFUNY,UFILDN'}
+  - name: image_3
+    properties: {source: _/theme/7_misclassified.png, height: 255.75, spacing_above: none,
+      spacing_below: none}
+    type: Image
+    layout_properties: {grid_position: 'DGFUNY,PNDOFH'}
+  - name: rich_text_3
+    properties: {content: 'The misclassification of ''1'' as ''2'' and ''7'' as ''3''
+        might be attributed to the similarity in certain handwritten forms of these
+        digits. For instance, a ''1'' with a longer top stroke could resemble a ''2'',
+        and a ''7'' with a curved line might be mistaken for a ''3''. The confusion
+        between ''6'' and ''8'' could arise from the closed loop in their structures,
+        where a slightly distorted ''6'' might appear similar to an ''8''.
+
+
+        To address these issues, further fine-tuning of the model could be considered.
+        For example, increasing the complexity of the convolutional layers or adjusting
+        the dropout rates might help the model better distinguish between similar-looking
+        digits. Additionally, augmenting the training dataset with more varied examples
+        of these challenging digits could improve the model''s ability to recognize
+        them correctly.
+
+
+        In conclusion, both our TensorFlow and PyTorch models have shown excellent
+        performance in classifying the MNIST dataset. While the TensorFlow model achieved
+        perfect accuracy, the PyTorch model''s few misclassifications offer opportunities
+        for further refinement. These results underscore the effectiveness of our
+        CNN architectures and the importance of continual optimization to enhance
+        model performance.
+
+        '}
+    type: RichText
+    layout_properties: {grid_position: 'NVMAMB,EPVCWX'}
+- type: FlowPanel
+  properties: {}
+  name: navbar_links
+  layout_properties: {slot: nav-right}
+- name: button_1
+  properties: {text: Go Back, icon: 'fa:arrow-left', background: 'theme:Secondary
+      Container'}
+  type: Button
+  layout_properties: {slot: title}
+  event_bindings: {click: button_1_click}
+- name: button_2
+  properties: {text: 'Dive into our models?', bold: true, icon: 'fa:arrow-circle-right',
+    font_size: 29}
+  type: Button
+  layout_properties: {slot: default}
+  event_bindings: {click: button_2_click}
